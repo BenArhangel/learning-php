@@ -1,29 +1,37 @@
-<?php include __DIR__ . '/../header.php'; ?>
-    <main>
-        <h2>Registration</h2>
+                          <?php include __DIR__ . '/../header.php'; ?>
+    <main class="cover error-401 reg-cover">
+    <div class="inside-login-main">
+    <div class="authorization-form reg-form">
+        <h2 class="authorization-header">Registration</h2>
+        <hr class="reg-hr">
         <?php if (!empty($error)) : ?>
-            <div style="background-color: red;padding: 5px;margin: 15px"><?= $error ?></div>
+            <div class="password-error swing animated change-text change-height fitted"><?= $error ?></div>
         <?php endif; ?>
         <form class="needs-validation" action="/www/users/register" method="post">
-            <div class="row g-3">
-                <div class="col-sm-6">
-                    <label for="nickname" class="form-label">Nickname</label>
-                    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="nickname" value="<?= $_POST['nickname'] ?? '' ?>">
+        <div class="reg-form-input">
+                    <label class="reg-label" for="nickname">Enter Your NickName:</label>
+                    <input class="reg-input no-mrgn" type="text"  id="nickname" name="nickname" placeholder="Enter Your NickName" required value="<?= $_POST['nickname'] ?? '' ?>">
+              
+
+          
+                    <label class="reg-label" for="email">Enter Your Email: <span class="text-body-secondary"></span></label>
+                    <input class="reg-input no-mrgn" type="email" name="email" placeholder="Enter Your Email"  required value="<?= $_POST['email'] ?? '' ?>">
+       
+
+          
+                    <label class="reg-label" for="password">Enter Your Password:<span class="text-body-secondary"></span></label>
+                    <input class="reg-input no-mrgn" type="password"  name="password"  placeholder="" required value="<?= $_POST['password'] ?? '' ?>">
+          
+
                 </div>
+                <hr class="reg-hr">
+                <div class="btn-output">
+                    <input id="register-success" class="w-100 btn btn-primary btn-lg " type="submit" value="Register">
 
-                <div class="col-12">
-                    <label for="email" class="form-label">Email <span class="text-body-secondary"></span></label>
-                    <input type="email" class="form-control" name="email"  value="<?= $_POST['email'] ?? '' ?>">
                 </div>
-
-                <div class="col-12">
-                    <label for="password" class="form-label">Password <span class="text-body-secondary"></span></label>
-                    <input type="password" class="form-control" name="password"  placeholder="" value="<?= $_POST['password'] ?? '' ?>">
-                </div>
-
-                <hr class="my-4">
-
-                <input class="w-100 btn btn-primary btn-lg" type="submit" value="Sing Up">
         </form>
+        </div>
+    </div>
     </main>
+    
 <?= include __DIR__ . '/../footer.php'; ?>
